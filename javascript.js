@@ -1,14 +1,15 @@
+
 document.addEventListener("DOMContentLoaded", ()=> {
   setTimeout(() => {
     
      recuperarProductos(URL) 
          
-  }, 2000);
+  }, 2500);
 })
 
 
 selecMaterial.addEventListener('change',()=>{
-    debugger
+    
     console.log(selecMaterial.value);
     if(selecMaterial.value == 'all'){
         recuperarProductos(stockProductos)
@@ -18,33 +19,25 @@ selecMaterial.addEventListener('change',()=>{
         recuperarProductos(arrayNuevo)
     }
 })
+
+const retornoContenido = (contenido)=> {
+    
+  const {id, material, medida, espesor, peso, valor, stock} = contenido
+
+  let tr = document.createElement('tr')
  
-/* mostrarProductos(stockProductos)
+  tr.innerHTML=`<th scope="row">${id}</th>
+  <td>${material}</td>
+  <td>${medida}</td>
+  <td>${espesor}</td>
+  <td>${peso}</td>
+  <td>${valor}</td>
+  <td>${stock}</td>`
+  filas.appendChild(tr)
+  
 
-function mostrarProductos(array){
+ }
 
-    filas.innerHTML= "" 
-
-    array.forEach(elemento => {
-    let tr = document.createElement('tr')
-    
-    tr.innerHTML=`<th scope="row">${elemento.id}</th>
-    <td>${elemento.material}</td>
-    <td>${elemento.medida}</td>
-    <td>${elemento.espesor}</td>
-    <td>${elemento.peso}</td>
-    <td>${elemento.valor}</td>
-    <td>${elemento.stock}</td>`
-    filas.appendChild(tr)
-
-    
-    
-    
-
-
-    }) */
-    
-   
     let btnElimina = document.getElementById(`btnElimina`)
 
     btnElimina.addEventListener('click',()=>{
@@ -83,10 +76,6 @@ function mostrarProductos(array){
         
             
     })
-    
-
-
-/* } */
 
     
 btnAgrega.addEventListener('click',()=>{
